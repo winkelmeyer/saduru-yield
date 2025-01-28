@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <path d="M80 250H320V60H80V250Z" fill="#E6F7FF"/>
+  <path d="M120 220V100" stroke="#1B3B36" strokeWidth="4" strokeLinecap="round"/>
+  <path d="M180 220V140" stroke="#1B3B36" strokeWidth="4" strokeLinecap="round"/>
+  <path d="M240 220V120" stroke="#1B3B36" strokeWidth="4" strokeLinecap="round"/>
+  <path d="M280 220V80" stroke="#1B3B36" strokeWidth="4" strokeLinecap="round"/>
+  <path d="M80 250H320" stroke="#1B3B36" strokeWidth="4" strokeLinecap="round"/>
+  <circle cx="120" cy="100" r="8" fill="#1B3B36"/>
+  <circle cx="180" cy="140" r="8" fill="#1B3B36"/>
+  <circle cx="240" cy="120" r="8" fill="#1B3B36"/>
+  <circle cx="280" cy="80" r="8" fill="#1B3B36"/>
+  <path d="M120 100C120 100 180 140 240 120C280 80 280 80 280 80" stroke="#1B3B36" strokeWidth="2" strokeDasharray="4 4"/>
+</svg> 
