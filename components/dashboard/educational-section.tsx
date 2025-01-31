@@ -32,7 +32,7 @@ export function EducationalSection({ cards }: EducationalSectionProps) {
             transform: `translateX(-${currentIndex * 100}%)`,
           }}
         >
-          {cards.map((card, index) => (
+          {cards.map((card) => (
             <div
               key={card.title}
               className="w-full flex-shrink-0 px-2"

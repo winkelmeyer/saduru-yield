@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { User } from "@supabase/auth-helpers-nextjs";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,10 @@ import { Label } from "@/components/ui/label";
 import { Alert } from "@/components/ui/alert";
 
 interface SecuritySettingsProps {
-  user: User;
+  user: {
+    id: string;
+    email?: string;
+  }
 }
 
 export function SecuritySettings({ user }: SecuritySettingsProps) {
@@ -56,7 +58,8 @@ export function SecuritySettings({ user }: SecuritySettingsProps) {
     <form onSubmit={handleSubmit}>
       <Card className="p-6 space-y-6">
         <div>
-          <h2 className="text-xl font-semibold mb-4">Change Password</h2>
+          <h2 className="text-xl font-semibold mb-4">Security Settings</h2>
+          <p className="text-sm text-gray-500">Update your password for {user.email}</p>
           {message && (
             <Alert className={message.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}>
               {message.text}
