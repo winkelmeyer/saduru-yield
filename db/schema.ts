@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, timestamp, decimal, sql, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgTable, uuid, text, timestamp, decimal, uniqueIndex } from 'drizzle-orm/pg-core';
 
 export const profiles = pgTable('profiles', {
   id: uuid('id').primaryKey(),

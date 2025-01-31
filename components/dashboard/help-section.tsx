@@ -78,7 +78,7 @@ export function HelpSection() {
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-4">Still Need Help?</h2>
         <p className="text-gray-600">
-          If you couldn't find the answer you're looking for, please don't hesitate to contact our support team. We're here to help!
+          If you couldn&apos;t find the answer you&apos;re looking for, please don&apos;t hesitate to contact our support team. We&apos;re here to help!
         </p>
       </Card>
     </div>

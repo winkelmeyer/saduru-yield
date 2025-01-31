@@ -27,10 +27,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return;
       }
 
-      if (session) {
+      if (session?.user?.email) {
         console.log("Session found:", session.user.email);
         setState({
-          user: session.user,
+          user: {
+            ...session.user,
+            email: session.user.email
+          },
+
           isLoading: false,
           error: null,
         });
@@ -42,14 +46,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     getSession();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
+       
       async (event, session) => {
+        if (session?.user?.email) {
         console.log("Auth state changed:", event);
         setState({
-          user: session?.user ?? null,
+          user: {
+            ...session.user,
+            email: session.user.email
+          },
           isLoading: false,
           error: null,
         });
       }
+      else {
+      setState(prev => ({ ...prev, isLoading: false }));
+        }
+      } 
     );
 
     return () => {
@@ -70,7 +83,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       router.push('/login?message=Please check your email to verify your account');
     } catch (error) {
       console.error("Error signing up:", error);
-      setState(prev => ({ ...prev, error: error.message }));
+      setState(prev => ({ ...prev, error: error instanceof Error ? error.message : 'Unknown error' }));
       throw error;
     }
   };
@@ -86,7 +99,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       router.push('/dashboard');
     } catch (error) {
       console.error("Error signing in:", error);
-      setState(prev => ({ ...prev, error: error.message }));
+      setState(prev => ({ ...prev, error: error instanceof Error ? error.message : 'Unknown error' }));
       throw error;
     }
   };
@@ -98,7 +111,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       router.push('/login');
     } catch (error) {
       console.error("Error signing out:", error);
-      setState(prev => ({ ...prev, error: error.message }));
+      setState(prev => ({ ...prev, error: error instanceof Error ? error.message : 'Unknown error' }));
       throw error;
     }
   };

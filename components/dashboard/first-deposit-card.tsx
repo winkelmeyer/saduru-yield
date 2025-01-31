@@ -16,7 +16,7 @@ export function FirstDepositCard() {
         />
       </div>
       <h2 className="text-2xl font-semibold mb-4">
-        You're three clicks away from putting your crypto to work
+        You&apos;re three clicks away from putting your crypto to work
       </h2>
       <p className="text-gray-500 mb-4">
         Connect with your existing Coinbase or bank account, no personal info needed.
